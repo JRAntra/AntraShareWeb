@@ -1,11 +1,13 @@
 <div id="header-container">
-    <div><img id="logo" /> AntraShare</div>
-    <div id="user-status-section">
+    <!-- <img id="logo" />  -->
+    <div class="header-content">AntraShare</div>
+
+    <div class="header-content" id="user-status-section">
         <ng-container *ngIf="isLoggedIn">
             Hello, username
         </ng-container>
         <ng-container *ngIf="!isLoggedIn">
-            <button>Log In Now!</button>
+            <button>Sign In Now!</button>
         </ng-container>
     </div>
 </div>
