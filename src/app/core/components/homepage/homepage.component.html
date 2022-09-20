@@ -1,0 +1,47 @@
+<p>homepage works!</p>
+
+<!-- <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" ></a> -->
+<!-- <div [routerLink]="['login']">Switch to the Login Page</div> -->
+<button (click)='onNavigatingTo("login")'>go to login page</button>
+<button (click)='onNavigatingTo("newsfeed")'>go to newsfeed page</button>
+
+<!-- 1.Structual Directive : ngIf ngFor NgSwtich -->
+<button (click)="toggleIndicator()">toggle</button>
+<!-- <div *ngIf="displayIndicator">This is the host</div> -->
+<!-- ///////////////////////////////////// -->
+
+<!-- <div *ngIf="employerList.length > 0">This is the host -->
+<ng-container *ngIf="employerList.length > 0">
+    Employer List
+    <div *ngFor="let employer of employerList">
+        <p>Employer name: </p>
+        {{employer.name}}
+    </div>
+</ng-container>
+
+<!-- </div> -->
+<!-- ngSwitch -->
+
+<div [ngSwitch]="employerNumber">
+    <p *ngSwitchCase=1>
+        We have 1 employer
+    </p>
+    <p *ngSwitchCase=2>
+        We have 2 employers
+    </p>
+    <p *ngSwitchDefault>
+        We have more than 2 emplyers
+    </p>
+</div>
+<button (click)="addEmployer()">add</button>
+
+
+<!-- ngStyle -->
+<div [ngStyle]="{'color': (colorBlind ? 'blue' : 'red')}">This is the colorful</div>
+<!-- if colorBlind is true, display blue; if is false, display red -->
+<!-- ngClass -->
+<div [ngClass]="{'displayInBlindMode': colorBlind}">this is the example for using ngClass</div>
+<!-- expression ? true Value : false Value -->
+
+
+<p (click)="addColorCounter()" [appChangeColor]="colorIndicator">This is the text for custom directive</p>
