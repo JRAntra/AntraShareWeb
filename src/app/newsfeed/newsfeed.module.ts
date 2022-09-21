@@ -7,18 +7,21 @@ import { StoryListComponent } from './components/newsfeed/story-list/story-list.
 import { PostFormComponent } from './components/post-form/post-form.component';
 
 import { ReversePipe } from 'src/app/shared/pipes/reverse.pipe';
+import { StoryItemComponent } from './components/newsfeed/story-list/story-item/story-item.component';
 
-
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     NewsfeedComponent,
     StoryListComponent,
     PostFormComponent,
-    ReversePipe
+    ReversePipe,
+    StoryItemComponent
   ],
   imports: [
     CommonModule,
-    NewsfeedRoutingModule
+    NewsfeedRoutingModule,
+    MatCardModule
   ]
 })
 export class NewsfeedModule { }

@@ -1,7 +1,11 @@
+<mat-card>
+    <app-post-form></app-post-form>
+</mat-card>
+<mat-card>
+    <app-story-list [storyList]="storyList"></app-story-list>
+</mat-card>
 
-<app-story-list [counter]="counter"></app-story-list>
-
-<app-post-form></app-post-form>
 <!-- <app-story-list [storyList]="storyList" [counter]="counter"></app-story-list> -->
 <!-- <div *ngIf=".length"></div> -->
 <!-- <button (click)="addCounter()">change</button> -->
+<!-- <div *ngFor="let item of storyListObservable | async">{{item.publisherName}}</div> -->

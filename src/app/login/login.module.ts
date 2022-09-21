@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   declarations: [LoginPageComponent],
   imports: [
     CommonModule,
+    FormsModule,
     LoginRoutingModule,
     ReactiveFormsModule,
     MatButtonModule,

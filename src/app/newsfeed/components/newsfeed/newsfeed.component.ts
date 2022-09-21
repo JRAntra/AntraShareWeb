@@ -1,4 +1,6 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { NewsfeedStory, UserInfo } from 'src/app/shared/models/newsfeed';
 import { NewsfeedStoryService } from '../../services/newsfeed-story.service';
 @Component({
@@ -6,60 +8,22 @@ import { NewsfeedStoryService } from '../../services/newsfeed-story.service';
   templateUrl: './newsfeed.component.html',
   styleUrls: ['./newsfeed.component.sass']
 })
-export class NewsfeedComponent implements OnInit, OnChanges, AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked, OnDestroy, DoCheck {
+export class NewsfeedComponent implements OnInit{
 
-  constructor(private newsfeedService : NewsfeedStoryService) { 
+  constructor(private newsfeedService : NewsfeedStoryService,
+    private fb : FormBuilder) { 
   }
-  
-  counter : number = 0
+    storyList: NewsfeedStory[] = []
+    storyListObservable?: Observable<NewsfeedStory[]>
 
-
-
-
-  storyList: any
-  storyListFromParent: NewsfeedStory[] = []
-
-  // ngOnInit(): void {
-
-  //   this.newsfeedService.getNewsFeedStory().subscribe(value =>{
-  //     this.storyList = value
-  //     console.log(this.storyList)
-  //   })
-  // }
-
-  //   addCounter(){
-  //     this.counter ++;
-  //   }
-  ngOnChanges(): void {
-    console.log("ngOnChanges")
-  }
   ngOnInit(): void {
-    // this.service.getNewsFeedStory().subscribe(value => {
-    //   this.storyList = value
-    // })
-    console.log("ngOnint")
-  }
-  ngDoCheck(): void {
-    console.log("ngDoCheck")
-  }
-  //child initialize lifecycle hooks
+    this.newsfeedService.getNewsFeedStory().subscribe(value =>{
+      this.storyList = value
+      // this.storyList.filter(item=>item.publishedTime)
+      console.log(this.storyList)
 
-  ngAfterContentInit(): void {
-    console.log("ngAfterContentInit")
+    })
+    // this.storyListObservable = this.newsfeedService.getNewsFeedStory();
+    // console.log(this.storyListObservable)
   }
-  ngAfterContentChecked(): void {
-    console.log("ngAfterContentChecked")
-  }
-  ngAfterViewInit(): void {
-    console.log("ngAfterViewInit")
-  }
-  ngAfterViewChecked(): void {
-    console.log("ngAfterViewChecked")
-  }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
-
- 
-
 }

@@ -7,5 +7,5 @@
 
 </div> -->
 
-<div id="header">Story List</div>
-<span>{{ data | async}}</span>
+<app-story-item *ngFor="let item of storyList" [storyItem]="item"></app-story-item>
+
