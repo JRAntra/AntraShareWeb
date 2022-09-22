@@ -5,6 +5,12 @@
             <br>
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>User Name</mat-label>
+                <mat-error *ngIf="username.errors?.['required']">
+                    Password is empty
+                </mat-error>
+                <mat-error *ngIf="username.errors?.['minlength']">
+                    Password must contains more than 8 charactors
+                </mat-error>
 
                 <input class="inputField" matInput formControlName="username"/>
 
@@ -13,18 +19,23 @@
                 <mat-label>Password</mat-label>
 
                 <input class="inputField" matInput formControlName="password" placeholder="Password" />
-
+                <mat-error *ngIf="password.errors?.['required']">
+                    Password is empty
+                </mat-error>
+                <mat-error *ngIf="password.errors?.['minlength']">
+                    Password must contains more than 8 charactors
+                </mat-error>
             </mat-form-field>
-
+            <br>
             <button mat-raised-button color="primary" class="submitButton" (click)="onLogin()">
                 Login
             </button>
             <br />
-            <a href="">No Accounts? Register Now!</a>
+            <a routerLink= "./no_account">No Accounts? Register Now!</a>
             <br />
             <div class="agreement">
-                <mat-checkbox color="primary">Agreement</mat-checkbox>
-                <a href="">Need Help?</a>
+                <mat-checkbox color="primary">Save Username for 7 Days</mat-checkbox>
+                <a>Need Help?</a>
             </div>
         </div>
   

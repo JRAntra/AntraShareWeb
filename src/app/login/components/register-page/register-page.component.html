@@ -1,0 +1,49 @@
+<mat-card>
+    <div class="register-panel-container">
+        <img src='./../../../../../assets/AntraShare_Logo.PNG' width='300px' height='300px'>
+        <br>
+        <div class="loginForm" [formGroup]="userPanel ">
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input class="inputField" matInput formControlName="username" />
+                <mat-error *ngIf="username?.errors?.['required']"> The username is Required</mat-error>
+            </mat-form-field>
+            <!-- <input class="inputField" formControlName="username"/>
+            <div *ngIf="username?.errors">
+                <div *ngFor="let item of errorsMag">
+                    <div>
+                        {{ showError(item) }}
+                    </div>
+                </div>
+            </div> -->
+
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Email</mat-label>
+
+                <input (keyup)="onInput()" class="inputField" matInput formControlName="email" placeholder="Email" />
+                <mat-error *ngIf="email?.errors?.['noDuplicateEmail']"> The email exists</mat-error>
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Password</mat-label>
+                <mat-error *ngIf="password?.errors?.['noDuplicate']"> The password is duplicated</mat-error>
+                <input class="inputField" matInput formControlName="password" placeholder="Password" />
+
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Password Confirm</mat-label>
+
+                <input class="inputField" matInput formControlName="passwordConfirm" placeholder="Password Confirm" />
+
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" class="submitButton" (click)="onRegister()">
+                Register
+            </button>
+            <br />
+            <div class="agreement">
+                <mat-checkbox color="primary">Agreement</mat-checkbox>
+                <a href="#">Click Here to Read Agreement</a>
+            </div>
+        </div>
+    </div>
+</mat-card>
