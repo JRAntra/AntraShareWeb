@@ -7,17 +7,11 @@
                 <mat-label>User Name</mat-label>
                 <input class="inputField" matInput formControlName="username" />
                 <mat-error *ngIf="username?.errors?.['required']"> The username is Required</mat-error>
-                <mat-error *ngIf="username?.errors?.['minlength']"> The username need to contains at least 5 characters</mat-error>
-                <mat-error *ngIf="username?.errors?.['maxlength']"> The username need to contains at most 10 characters</mat-error>
+                <mat-error *ngIf="username?.errors?.['minlength']"> The username need to contains at least 5 characters
+                </mat-error>
+                <mat-error *ngIf="username?.errors?.['maxlength']"> The username need to contains at most 10 characters
+                </mat-error>
             </mat-form-field>
-            <!-- <input class="inputField" formControlName="username"/>
-            <div *ngIf="username?.errors">
-                <div *ngFor="let item of errorsMag">
-                    <div>
-                        {{ showError(item) }}
-                    </div>
-                </div>
-            </div> -->
 
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>Email</mat-label>
@@ -27,13 +21,13 @@
                 <mat-error *ngIf="email?.errors?.['required']"> The email is Required</mat-error>
                 <mat-error *ngIf="email?.errors?.['email']"> Please enter a valid email</mat-error>
 
-
             </mat-form-field>
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>Password</mat-label>
                 <input class="inputField" matInput formControlName="password" placeholder="Password" />
                 <mat-error *ngIf="password?.errors?.['required']"> The password is Required</mat-error>
-                <mat-error *ngIf="password?.errors?.['noDuplicate']"> The password should not contain duplicate characters</mat-error>
+                <mat-error *ngIf="password?.errors?.['noDuplicate']"> The password should not contain duplicate
+                    characters</mat-error>
 
             </mat-form-field>
             <mat-form-field class="formField" appearance="outline">
@@ -44,10 +38,11 @@
 
             </mat-form-field>
 
+            
             <button mat-raised-button color="primary" class="submitButton" (click)="onRegister()">
                 Register
             </button>
-            <br />
+            <br/>
             <div class="agreement">
                 <mat-checkbox color="primary">Agreement</mat-checkbox>
                 <a href="#">Click Here to Read Agreement</a>

@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { userLoginToken } from 'src/app/shared/models/userAccount';
 import { LoginService } from '../../services/login.service';
+import { debounceTime, map, tap, throttle, interval, delay, switchMap} from 'rxjs';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -30,6 +31,7 @@ export class LoginPageComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.setLimitForChange()
   }
   onLogin() {
     if (!this.validationError()) {
@@ -57,6 +59,15 @@ export class LoginPageComponent implements OnInit {
   }
 
 
+setLimitForChange(){
+  
+  this.useremail.valueChanges.pipe(
+     debounceTime(1000)
+    )
+    .subscribe(res=> console.log(res))
+
+
+}
 
 
 

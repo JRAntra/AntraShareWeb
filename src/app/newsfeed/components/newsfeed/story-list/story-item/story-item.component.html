@@ -1,10 +1,9 @@
 <div class="story-container">
-
     <div class="story-header">
         <img>
         <div class="story-header-userinfo">
             <div>Pulisher: {{storyItem?.publisherName}}</div>
-            <div>Published Time: {{storyItem?.publisherName}}</div>
+            <div>Published Time: {{storyItem?.publishedTime | date: 'short'}}</div>
         </div>
     </div>
 
