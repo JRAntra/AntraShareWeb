@@ -1,15 +1,15 @@
 export interface NewsfeedStory{
-    userInfo : UserInfo;
+    userInfo? : UserInfo;
     publisherName: string;
-    publishedTime: string;
-    commentNumber: number;
+    publishedTime?: string;
+    commentNumber?: number;
     content: Content
 }
 
 export interface Content{
-    text:string
+    text?:string
 }
 export interface UserInfo{
-    name: string;
-    admin: boolean;
+    name?: string;
+    admin?: boolean;
 }

@@ -7,6 +7,8 @@
                 <mat-label>User Name</mat-label>
                 <input class="inputField" matInput formControlName="username" />
                 <mat-error *ngIf="username?.errors?.['required']"> The username is Required</mat-error>
+                <mat-error *ngIf="username?.errors?.['minlength']"> The username need to contains at least 5 characters</mat-error>
+                <mat-error *ngIf="username?.errors?.['maxlength']"> The username need to contains at most 10 characters</mat-error>
             </mat-form-field>
             <!-- <input class="inputField" formControlName="username"/>
             <div *ngIf="username?.errors">
@@ -20,19 +22,25 @@
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>Email</mat-label>
 
-                <input (keyup)="onInput()" class="inputField" matInput formControlName="email" placeholder="Email" />
-                <mat-error *ngIf="email?.errors?.['noDuplicateEmail']"> The email exists</mat-error>
+                <input class="inputField" matInput formControlName="email" placeholder="Email" />
+                <mat-error *ngIf="email?.errors?.['noDuplicateEmail']"> The email is already been used</mat-error>
+                <mat-error *ngIf="email?.errors?.['required']"> The email is Required</mat-error>
+                <mat-error *ngIf="email?.errors?.['email']"> Please enter a valid email</mat-error>
+
+
             </mat-form-field>
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>Password</mat-label>
-                <mat-error *ngIf="password?.errors?.['noDuplicate']"> The password is duplicated</mat-error>
                 <input class="inputField" matInput formControlName="password" placeholder="Password" />
+                <mat-error *ngIf="password?.errors?.['required']"> The password is Required</mat-error>
+                <mat-error *ngIf="password?.errors?.['noDuplicate']"> The password should not contain duplicate characters</mat-error>
 
             </mat-form-field>
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>Password Confirm</mat-label>
 
                 <input class="inputField" matInput formControlName="passwordConfirm" placeholder="Password Confirm" />
+                <mat-error *ngIf="passwordConfirm?.errors?.['required']"> The password confirm is Required</mat-error>
 
             </mat-form-field>
 

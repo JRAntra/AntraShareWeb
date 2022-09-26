@@ -2,26 +2,26 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { NewsfeedStory } from 'src/app/shared/models/newsfeed';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class NewsfeedStoryService {
 
-  storyList : any
-  getDataIndicator = true;
-
-  likeList : any
-
   constructor(private http : HttpClient) { }
+
+  baseDomainUrl = environment.localApiDomain
+  baseApiUrl = environment.newsApiUrl
+  baseUrl = this.baseDomainUrl + this.baseApiUrl
 
 // newsfeedStory
   getNewsFeedStory():Observable<NewsfeedStory[]>{
-
-    return this.http.get<NewsfeedStory[]>("http://localhost:4231/api/news")  //Observable<newsfeedStory> 
+    const apiUrl = ""
+    const finalUrl = this.baseUrl + apiUrl
+    console.log(finalUrl)
+    return this.http.get<NewsfeedStory[]>(finalUrl)  //Observable<newsfeedStory> 
     
   }
-  updateLikeList(newLikelist : any){
-    this.likeList = newLikelist
-  }
+
 
 }

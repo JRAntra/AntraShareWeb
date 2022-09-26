@@ -13,12 +13,7 @@ export class PostFormComponent implements OnInit {
   indicator: boolean = true;
 
   ngOnInit(): void {
-    this.indicator = this.newsfeedService.getDataIndicator
     //observables
-  }
-  checkNewIndicator(){
-
-    console.log("indicator in service changed to " + this.newsfeedService.getDataIndicator)
   }
 
 }

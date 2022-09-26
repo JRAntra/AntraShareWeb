@@ -10,8 +10,10 @@ import { NewsfeedStoryService } from '../../services/newsfeed-story.service';
 })
 export class NewsfeedComponent implements OnInit{
 
-  constructor(private newsfeedService : NewsfeedStoryService,
-    private fb : FormBuilder) { 
+  constructor(
+    private newsfeedService : NewsfeedStoryService,
+    private fb : FormBuilder
+    ) { 
   }
     storyList: NewsfeedStory[] = []
     storyListObservable?: Observable<NewsfeedStory[]>
@@ -19,11 +21,6 @@ export class NewsfeedComponent implements OnInit{
   ngOnInit(): void {
     this.newsfeedService.getNewsFeedStory().subscribe(value =>{
       this.storyList = value
-      // this.storyList.filter(item=>item.publishedTime)
-      console.log(this.storyList)
-
     })
-    // this.storyListObservable = this.newsfeedService.getNewsFeedStory();
-    // console.log(this.storyListObservable)
   }
 }
