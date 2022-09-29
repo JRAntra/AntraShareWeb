@@ -3,7 +3,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { userLoginToken } from 'src/app/shared/models/userAccount';
 import { LoginService } from '../../services/login.service';
-import { debounceTime, map, tap, throttle, interval, delay, switchMap} from 'rxjs';
+import { debounceTime, map, tap, throttle, interval, delay, switchMap, BehaviorSubject, Subject, ReplaySubject, of, first, take, takeUntil, Observable, from, fromEvent} from 'rxjs';
+import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -16,6 +17,7 @@ export class LoginPageComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService) { }
 
+showTemplateIndicator = true;
 
   userPanel = this.fb.group({
     useremail: new FormControl('',
@@ -33,6 +35,8 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     this.setLimitForChange()
   }
+  
+
   onLogin() {
     if (!this.validationError()) {
       const userInfo: userLoginToken = {
@@ -40,9 +44,8 @@ export class LoginPageComponent implements OnInit {
         password: this.password.value
       }
       this.loginService.userLogin(userInfo).subscribe(res => {
-        console.log(res)
         if (res) {
-          this.router.navigate(['newsfeed'])
+          this.router.navigate(["newsfeed"])
         }
       })
     }

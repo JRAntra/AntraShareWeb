@@ -1,37 +1,36 @@
+<mat-card>
+    <div class="loginForm" [formGroup]="userPanel">
+        <img src='./../../../../../assets/AntraShare_Logo.PNG' width='200px' height='200px'>
+        <br>
+        <mat-form-field class="formField" appearance="outline">
+            <mat-label>User Email</mat-label>
+            <input class="inputField" matInput formControlName="useremail" />
+            <mat-error *ngIf="useremail.errors?.['required']">
+                User Email is empty
+            </mat-error>
 
+        </mat-form-field>
+        <mat-form-field class="formField" appearance="outline">
+            <mat-label>Password</mat-label>
 
-        <div class="loginForm" [formGroup]="userPanel">
-            <img src='./../../../../../assets/AntraShare_Logo.PNG' width='200px' height='200px'>
-            <br>
-            <mat-form-field class="formField" appearance="outline">
-                <mat-label>User Email</mat-label>
-                <input class="inputField" matInput formControlName="useremail"/>
-                <mat-error *ngIf="useremail.errors?.['required']">
-                    User Email is empty
-                </mat-error>
-
-            </mat-form-field>
-            <mat-form-field class="formField" appearance="outline">
-                <mat-label>Password</mat-label>
-
-                <input class="inputField" matInput formControlName="password" placeholder="Password" />
-                <mat-error *ngIf="password.errors?.['required']">
-                    Password is empty
-                </mat-error>
-                <mat-error *ngIf="password.errors?.['minlength']">
-                    Password must contains more than 7 charactors
-                </mat-error>
-            </mat-form-field>
-            <br>
-            <button mat-raised-button color="primary" class="submitButton" (click)="onLogin()">
-                Login
-            </button>
-            <br />
-            <a routerLink= "./no_account">No Accounts? Register Now!</a>
-            <br />
-            <div class="agreement">
-                <mat-checkbox color="primary">Save Username for 7 Days</mat-checkbox>
-                <a>Need Help?</a>
-            </div>
+            <input class="inputField" matInput formControlName="password" placeholder="Password" />
+            <mat-error *ngIf="password.errors?.['required']">
+                Password is empty
+            </mat-error>
+            <mat-error *ngIf="password.errors?.['minlength']">
+                Password must contains more than 7 charactors
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" class="submitButton" (click)="onLogin()">
+            Login
+        </button>
+        <br />
+        <a routerLink="./no_account">No Accounts? Register Now!</a>
+        <br />
+        <div class="agreement">
+            <mat-checkbox color="primary">Save Username for 7 Days</mat-checkbox>
+            <a>Need Help?</a>
         </div>
-  
+    </div>
+</mat-card>

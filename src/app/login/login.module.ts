@@ -17,12 +17,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { WarningDialogComponent } from '../shared/components/warning-dialog/warning-dialog.component';
 
 // import { ChangeColorDirective } from '../shared/directives/change-color.directive';
 
 
 @NgModule({
-  declarations: [LoginPageComponent, RegisterPageComponent],
+  declarations: [LoginPageComponent, RegisterPageComponent,WarningDialogComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,18 +1,20 @@
-<div class="story-container">
-    <div class="story-header">
-        <img>
-        <div class="story-header-userinfo">
-            <div>Pulisher: {{storyItem?.publisherName}}</div>
-            <div>Published Time: {{storyItem?.publishedTime | date: 'short'}}</div>
+<mat-card>
+    <div class="story-container">
+        <div class="story-header">
+            <img>
+            <div class="story-header-userinfo">
+                <div>@{{storyItem?.publisherName}}</div>
+                <div>Published Time: {{storyItem?.publishedTime | date: 'short'}}</div>
+            </div>
+        </div>
+
+        <div class="story-content">
+            <div>{{storyItem?.content?.text}}</div>
+        </div>
+
+        <div class="story-footer">
+            <div>Comment Number</div>
+            <div>Liked Number</div>
         </div>
     </div>
-
-    <div class="story-content">
-        <div>{{storyItem?.content?.text}}</div>
-    </div>
-
-    <div class="story-footer">
-        <div>Comment Number</div>
-        <div>Liked Number</div>
-    </div>
-</div>
+</mat-card>
