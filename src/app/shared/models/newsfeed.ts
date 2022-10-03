@@ -4,6 +4,7 @@ export interface NewsfeedStory{
     publishedTime?: string;
     commentNumber?: number;
     content: Content
+    comment: any
 }
 
 export interface Content{
@@ -12,4 +13,10 @@ export interface Content{
 export interface UserInfo{
     name?: string;
     admin?: boolean;
+}
+
+export interface Comment{
+    publisherName: string;
+    publishedTime: string;
+    content: Content
 }

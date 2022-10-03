@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './core/components/homepage/homepage.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 import { CanAccessAdminGuard } from './shared/guard/can-access-admin.guard';
-import { GetStoryDataService } from './shared/service/get-story-data.service';
 
 const routes: Routes = [
   { path: "", redirectTo:"login", pathMatch:"full"},
@@ -15,7 +14,6 @@ const routes: Routes = [
   {
     path: 'newsfeed',
     loadChildren: () => import('./newsfeed/newsfeed.module').then(m => m.NewsfeedModule),
-    resolve:GetStoryDataService
   },
   {
     path: 'profile',
